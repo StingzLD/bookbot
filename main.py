@@ -17,6 +17,8 @@ def print_report(book_path, word_count, chars_sorted):
     print(f"Found {word_count} total words")
     print(f"--------- Character Count -------")
     for char_dict in chars_sorted:
+        if not char_dict['char'].isalpha():
+            continue
         print(f"{char_dict['char']}: {char_dict['count']}")
     print("============= END ===============")
 
