@@ -1,3 +1,4 @@
+import sys
 from stats import (
     count_words,
     count_characters,
@@ -24,7 +25,6 @@ def print_report(book_path, word_count, chars_sorted):
 
 
 def main():
-    book_path = "books/frankenstein.txt"
     book_text = get_book_text(book_path)
     word_count = count_words(book_text)
     # print(f"{word_count} words found in the document")
@@ -34,5 +34,11 @@ def main():
     # print(sorted_char_count)
     print_report(book_path, word_count, sorted_char_count)
 
+
+if len(sys.argv) == 1:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+book_path = sys.argv[1]
 
 main()
